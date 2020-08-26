@@ -26,7 +26,7 @@ nxy = [nx(1)-ny(end): nx(end)-ny(1)];
 
 % Display max Value in autocorrelation 
 
-disp(["The maximum value is at lag", num2str(nxy(indR)) "."]);
+disp(["The maximum value is at lag", num2str(rxy(indR)) "."]);
  
 figure
 subplot(3,1,1);
