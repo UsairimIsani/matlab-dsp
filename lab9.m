@@ -7,7 +7,7 @@ Tp = 1;
 t = 0:0.0001:10e-3;
 dc = 0.5;
 xt = sin(2 * pi * 1000 * t) + dc * sin(2 * pi * 2000 * t + (3 * pi / 4));
-% N = 8;
+N = 8;
 % N = 1000; 
 % For N = 1000;
 % Elapsed time is 0.229460 seconds.
