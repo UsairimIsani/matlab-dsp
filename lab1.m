@@ -9,3 +9,4 @@ xn=sin(2*pi*f*nts);
 plot(t,xt);
 hold on;
 stem(nts,xn);
+pause

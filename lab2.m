@@ -68,3 +68,4 @@ xlabel('Discrete time sec');
 ylabel('Amplitude');
 xlim([0,0.1]);
 grid on;
+pause

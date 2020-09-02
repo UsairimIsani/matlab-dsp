@@ -54,3 +54,4 @@ stem(n2,y2);
 title("x(-n)");
 xlabel("n");
 ylabel("Amplitude");
+pause

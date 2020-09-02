@@ -41,5 +41,6 @@ xlabel("Hz");
 % if tau=0.001 Pulse width becomes impulses and lobe width increase to impulses in frequency domain
 % if tau=1 Pulse width becomes dc and lobe width becomes impuls in frequency domain
 
+pause
 
 

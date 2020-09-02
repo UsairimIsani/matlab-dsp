@@ -51,3 +51,4 @@ ylabel("Phase ");
 xlim([0 Fs]);
 title("Phase spectrum");
 
+pause

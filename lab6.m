@@ -46,3 +46,4 @@ stem(nxy,rxy);
 xlabel("Time Index");
 ylabel("Amplitude");
 title("Signal Correlation");
+pause
