@@ -1,34 +1,12 @@
-% Assignment
-% Record Your Voice at home while turn any motor (Used Padestal Fan) of your house ON.
-% Remove sound of motor from recorded signal.
-% Generate Audio File(s).
-% Listen to the output signal.
+%  BM17038
+
 clear all;
 close all;
 clc;
-file_name_read = "BM17040_ORIGINAL.wav";
-file_name_write_pass_one = "BM17040_FILTERED_1.wav";
-file_name_write_pass_two = "BM17040_FILTERED_2.wav";
-[data Fs] = audioread(file_name_read);
+file_name = "BM17038.wav";
+file_name_w = "BM17038_Filtered.wav";
+[y Fs] = audioread(file_name);
 
-% Passing Through IIR First
-
-Fn = Fs/2;                                              % Nyquist Frequency (Hz)
-Wp = 800/Fn;                                           % Passband Frequency (Normalised)
-Ws = 890/Fn;                                           % Stopband Frequency (Normalised)
-Rp = 1;                                                 % Passband Ripple (dB)
-Rs = 50;                                                % Stopband Ripple (dB)
-[n,Ws] = cheb2ord(Wp,Ws,Rp,Rs);                         % Filter Order
-[z,p,k] = cheby2(n,Rs,Ws,'high');                       % Filter Design, z -> Zeros ,p -> Poles, k -> Gain Scalar
-[soslp,glp] = zp2sos(z,p,k);                            % Convert To Second-Order-Section For Stability
-figure
-freqz(soslp, 2^16, Fs);                                  % Filter Bode Plot
-filtered_sound = filtfilt(soslp, glp, data);
-audiowrite(file_name_write_pass_one,filtered_sound,Fs);
-% sound(filtered_sound)
-% Passing the IIR filtered signal through FIR 
-% y = filtered_sound; 
-y = data;
 t = 0:1/Fs:length(y)/Fs-1/Fs;
 
 % freq domain
@@ -81,5 +59,5 @@ title("Filtered signal");
 xlabel("Time (sec)");
 ylabel("Amplitude");
 
-audiowrite(file_name_write_pass_two, yFiltered, Fs);
+audiowrite(file_name_w, yFiltered, Fs);
 sound(yFiltered, Fs)    

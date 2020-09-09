@@ -1,0 +1,51 @@
+clear all;
+close all;
+clc;
+f1=10;f2=110;fs=100;
+ts=1/fs;
+t=0:0.0005:2;
+sound(
+x1t=sin(2*pi*f1*t);
+x2t=sin(2*pi*f2*t);
+figure;
+plot(t,x1t,t,x2t,'LineWidth',2);
+xlabel('Cont Time (Sec)');
+ylabel('Amp');
+xlim([0 0.1]);
+grid on;
+legend('10Hz','110Hz');
+title('Two CTCV Sinusoids Signals');
+%Sampling the two CTCV Sinusoids
+nts=[0:ts:0.2];
+x1n=sin(2*pi*f1*nts);
+x2n=sin(2*pi*f2*nts);
+figure;
+subplot(121);
+stem(nts,x1n,'r','LineWidth',2);
+grid on;
+title('10Hz DTCV(sampled) SIGNAL');
+xlabel('Discrete Time (Sec)');
+ylabel('Amp');
+xlim([0 0.1]);
+subplot(122);
+stem(nts,x2n,'LineWidth',2);
+grid on;
+title('110Hz DTCV(sampled) SIGNAL');
+xlabel('Discrete Time (Sec)');
+ylabel('Amp');
+xlim([0 0.1]);
+figure;
+plot(t,x1t,t,x2t);
+hold
+stem(nts,x1n,'r','LineWidth',2);
+grid on;
+title('Analog Sinusoids & Sampled Signal');
+xlabel('Time(Sec)');
+xlim([0 0.1]);
+
+
+
+
+
+
+
