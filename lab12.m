@@ -1,10 +1,10 @@
-%  BM17038
+%  BM17050
 
 clear all;
 close all;
 clc;
-file_name = "BM17038.wav";
-file_name_w = "BM17038_Filtered.wav";
+file_name = "bm17045.wav";
+file_name_w = "bm17045_FILTERED.wav";
 [y Fs] = audioread(file_name);
 
 t = 0:1/Fs:length(y)/Fs-1/Fs;
@@ -15,7 +15,10 @@ K = 0:N-1;
 f = K*Fs/N;
 
 % filter
-freqRange = [800 2600]*2/Fs;
+% Hammad
+freqRange = [300 600]*2/Fs;
+% Ubadah
+% freqRange = [500 1000]*2/Fs;
 
 b = fir1(64, freqRange);
 a = 1;
